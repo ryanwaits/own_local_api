@@ -6,8 +6,12 @@ class Api::V1::CompaniesController < Api::V1::BaseController
     end
 
     def show
-        # one company
-        respond_with :api, :v1, @company
+        # one company based on :id
+        if Company.valid_id?(params[:id])
+            respond_with :api, :v1, @company
+        else
+            respond_with Company.error_message_for_id
+        end
     end
 
     private 
