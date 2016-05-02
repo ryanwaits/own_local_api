@@ -2,7 +2,9 @@ class Api::V1::CompaniesController < Api::V1::BaseController
     before_action :set_company, only: [:show]
     def index
         # all companies
-        respond_with Company.paginate(page: params[:page], per_page: 51).order('id ASC')
+        paginated_companies = Company.paginate(page: params[:page], per_page: 51).order('id ASC')
+        Company.add_meta_data(paginated_companies.current_page.to_i, paginated_companies.per_page - 1, Company.all.count)
+        respond_with paginated_companies
     end
 
     def show
