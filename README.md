@@ -1,28 +1,36 @@
-== README
+### REST API | OwnLocal
+##### Servicing Company Data in JSON
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+***
 
-Things you may want to cover:
+#### Installation
+    # clone and cd into the repository
+    $ git clone ------------ && cd ----------------
 
-* Ruby version
+    # bundle dependencies
+    $ bundle
 
-* System dependencies
+    # create a postgresql db
+    $ rake db:create:all
 
-* Configuration
+    # migrate the database
+    $ rake db:migrate
 
-* Database creation
+    # import CSV data
+    $ rake import
 
-* Database initialization
+    # start the rails server
+    $ rails server
+    
+#### Requests
 
-* How to run the test suite
+    # GET a list of all the companies (default: 50 per page)
 
-* Services (job queues, cache servers, search engines, etc.)
+    | http://localhost:3000/api/v1/companies.json
+    | http://localhost:3000/api/v1/companies.json?page={page_number}
 
-* Deployment instructions
+    
+    # GET one company by {id} 
 
-* ...
+    | http://localhost:3000/api/v1/companies/{id}.json
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
