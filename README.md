@@ -34,3 +34,15 @@
 
     | /api/v1/companies/{id}.json
 
+#### Testing
+
+First run ``` rails generate rspec:install ``` to prepare ```spec_helper``` & ```rails_helper``` files
+
+To test all requests
+
+    $ rspec spec/requests/
+
+Or one at a time
+
+    $ rspec spec/requests/{spec_file}
+
