@@ -26,11 +26,11 @@
 
     # GET a list of all the companies (default: 50 per page)
 
-    | http://localhost:3000/api/v1/companies.json
-    | http://localhost:3000/api/v1/companies.json?page={page_number}
+    | /api/v1/companies.json
+    | /api/v1/companies.json?page={page_number}
 
     
     # GET one company by {id} 
 
-    | http://localhost:3000/api/v1/companies/{id}.json
+    | /api/v1/companies/{id}.json
 
