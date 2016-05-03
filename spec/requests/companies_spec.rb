@@ -44,4 +44,30 @@ describe '#Companies API' do
             expect(company_names).to match_array(['Apple', 'Whole Foods'])
         end
     end
+
+    describe 'GET /api/v1/companies/{id}.json' do
+        it 'returns {id} of the company' do
+            company = Company.create(
+
+                { 
+                    uuid: '12345', 
+                    name: 'Apple', 
+                    address: '123 Cupertino', 
+                    address2: '', 
+                    city: 'Silicon Valley', 
+                    state: 'CA', 
+                    zip: '98765', 
+                    country: 'US', 
+                    phone: '123-456-7891', 
+                    website: 'http://www.apple.com', 
+                    created_at: Time.now
+                 }
+            )
+            get "/api/v1/companies/#{company.id}.json", {}, { 'Accept' => 'application/json' }
+            expect(response.status).to eq(200)
+
+            body = JSON.parse(response.body)
+            expect(body['name']).to match('Apple')
+        end
+    end 
 end
