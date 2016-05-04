@@ -16,4 +16,4 @@ FactoryGirl.define do
     website 'www.jonsnowlives.com'
     created_at Time.now
   end
-endd
+end
