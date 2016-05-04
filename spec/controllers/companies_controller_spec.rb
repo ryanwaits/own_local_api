@@ -18,6 +18,14 @@ describe Api::V1::CompaniesController do
             body = JSON.parse(response.body)
             expect(body.length).to eq(5)
         end
+
+        it 'returns 50 companies per page' do
+            create_list(:company, 200)
+            get :index, params: {page: 2}, format: :json
+
+            body = JSON.parse(response.body)
+            expect(body.length).to eq(50)
+        end
     end
     describe 'GET #show' do
         it 'returns success: response status 200' do
