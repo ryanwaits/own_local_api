@@ -14,19 +14,29 @@ describe '#Companies API' do
             company_names = body.map { |company| company['name'] }
 
             expect(company_names).to match_array(['The Nights Watch', 'The Nights Watch'])
+            expect(body.length).to eq(2)
         end
     end
 
-    describe 'GET /api/v1/companies.json?page={page_num > 1}' do
-        it 'returns nil' do
-
+    describe 'GET /api/v1/companies.json?page=5' do
+        it 'returns list of companies on page 5' do
+            create_list(:company, 250)
             get '/api/v1/companies.json?page=5', {}, { 'Accept': 'application/json' }
             expect(response.status).to eq(200)
 
             body = JSON.parse(response.body)
-            companies = body.map { |company| company['meta']['page_number'] }
+            expect(body.length).to eq(50)
+        end
+    end
 
-            expect(companies.first).to match(nil)
+    describe 'GET /api/v1/companies.json?page=1001' do
+        it 'returns empty Array' do
+
+            get '/api/v1/companies.json?page=1001', {}, { 'Accept': 'application/json' }
+            expect(response.status).to eq(200)
+
+            body = JSON.parse(response.body)
+            expect(body).to match([])
         end
     end
 
