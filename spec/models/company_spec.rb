@@ -10,3 +10,11 @@ describe 'User .valid_id?' do
         expect(result).to eq(nil)
     end
 end
+
+describe 'User .error_message' do
+    it 'returns an Array containing error information' do
+        result = Company.error_message
+
+        expect(result).to match([{error: {message: 'Unable to locate specified {id}', status: 400}}])
+    end
+end
