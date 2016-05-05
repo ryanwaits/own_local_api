@@ -5,6 +5,10 @@ class Company < ActiveRecord::Base
         Company.update_all(meta: {page_number: page, per_page: per_page, total_companies: total})
     end
 
+    def self.reset_meta_data(company, total)
+        company.update_attributes(meta: {per_page: 1, total_companies: total})
+    end
+
     # check to see if parameter is an Integer
     def self.valid_id?(params)
         params.to_i
