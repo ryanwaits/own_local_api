@@ -16,6 +16,7 @@ class Api::V1::CompaniesController < Api::V1::BaseController
     def show
         # one company based on :id
         if Company.valid_id?(params[:id])
+            Company.reset_meta_data(@company, Company.all.count)
             respond_with :api, :v1, @company
         else
             respond_with Company.error_message
