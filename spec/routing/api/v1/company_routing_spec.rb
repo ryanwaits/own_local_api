@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'support/factory_girl.rb'
+require 'support/factory_girl'
 
 describe Api::V1::CompaniesController, type: :routing do
     it 'routes /api/v1/companies.json to #index' do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'spec_helper'
-require 'support/factory_girl.rb'
+require 'support/factory_girl'
 
 describe Api::V1::CompaniesController do
     describe 'GET #index' do
