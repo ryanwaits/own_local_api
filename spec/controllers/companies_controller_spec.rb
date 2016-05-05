@@ -28,21 +28,16 @@ describe Api::V1::CompaniesController do
         end
     end
     describe 'GET #show' do
-        it 'returns success: response status 200' do
-
-            company = create(:company)
-            get :show, id: company.id, format: :json
-
-            expect(response).to be_success
-        end
-
         it 'returns one company' do
 
             company = create(:company)
             get :show, id: company.id, format: :json
+
             body = JSON.parse(response.body)
 
-            expect(body).to_not eq(nil)
+            expect(response).to be_success
+            expect(body['name']).to eq(company.name)
+
         end
 
         it 'returns an error if {id} is invalid' do
