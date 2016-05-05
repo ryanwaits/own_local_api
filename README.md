@@ -28,6 +28,7 @@
 
     | /api/v1/companies.json
     | /api/v1/companies.json?page={page_number}
+    | /api/v1/companies.json?page={page_number}&per_page={per_page}
 
     
     # GET one company by {id} 
