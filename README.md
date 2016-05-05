@@ -4,8 +4,8 @@
 ***
 
 #### Installation
-    # clone and cd into the repository
-    $ git clone ------------ && cd ----------------
+    # clone and cd into the repository (use https://github.com/ryanwaits/own_local_api.git if ssh is not set up)
+    $ git clone git@github.com:ryanwaits/own_local_api.git && cd own_local_api
 
     # bundle dependencies
     $ bundle
