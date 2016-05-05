@@ -38,11 +38,11 @@
 
 First run ``` rails generate rspec:install ``` to prepare ```spec_helper``` & ```rails_helper``` files
 
-To test all requests
+To test all specs
 
-    $ rspec spec/requests/
+    $ rspec spec
 
 Or one at a time
 
-    $ rspec spec/requests/{spec_file}
+    $ rspec spec/controllers/api/v1/{spec_file}
 
