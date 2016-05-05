@@ -4,4 +4,7 @@ Rails.application.routes.draw do
       resources :companies, only: [:index, :show]
     end
   end
+  
+  # using params[:a], we can store the url path submitted by the client
+  match '*a', :to => 'errors#routing', via: :all
 end
