@@ -11,6 +11,11 @@ class Company < ActiveRecord::Base
         return /\d/.match(params)
     end
 
+    def self.is_valid?(params)
+        params.to_i
+        return /\d/.match(params)
+    end
+
     def self.error_message
         error = [
             {
