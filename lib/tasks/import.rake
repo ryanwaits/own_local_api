@@ -1,9 +1,11 @@
 require 'csv'
-desc 'import from csv file'
-task :import => [:environment] do
-    fn = 'db/csv/businesses.csv'
 
-    CSV.foreach(fn, headers: true) do |doc|
-        Company.create(doc.to_hash)
+namespace :import do
+    desc 'import companies from csv'
+    task companies: :environment do
+        fn = 'db/csv/companies.csv'
+        CSV.foreach(fn, headers: true) do |row|
+            Company.create(row.to_hash)
+        end
     end
 end
