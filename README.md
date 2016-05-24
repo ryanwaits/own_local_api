@@ -17,7 +17,7 @@
     $ rake db:migrate
 
     # import CSV data
-    $ rake import
+    $ rake import:companies OR bundle exec rake import:companies
 
     # start the rails server
     $ rails server
